@@ -1,16 +1,16 @@
 global.log = require('../lib/Log.js').log;
 
-global.log('Some', 'log');
+log('Some', 'log');
 
 function Foo() {
-    global.log('Some', 'log', 'in', 'constructor');
+    log('Some', 'log', 'in', 'constructor');
 }
 Foo.prototype.bar = function() {
-    global.log('Some', 'log', 'in', 'Foo.bar()');
+    log('Some', 'log', 'in', 'Foo.bar()');
 }
 
 function Bar() {
-    global.log('Some', 'log', 'in', 'Bar()');
+    log('Some', 'log', 'in', 'Bar()');
 }
 
 var obj = new Foo();
