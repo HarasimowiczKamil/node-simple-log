@@ -7,17 +7,17 @@ Overlay to the function console.log
 ```js
 global.log = require('../lib/Log.js').log;
 
-global.log('Some', 'log');
+log('Some', 'log');
 
 function Foo() {
-    global.log('Some', 'log', 'in', 'constructor');
+    log('Some', 'log', 'in', 'constructor');
 }
 Foo.prototype.bar = function() {
-    global.log('Some', 'log', 'in', 'Foo.bar()');
+    log('Some', 'log', 'in', 'Foo.bar()');
 }
 
 function Bar() {
-    global.log('Some', 'log', 'in', 'Bar()');
+    log('Some', 'log', 'in', 'Bar()');
 }
 
 var obj = new Foo();
@@ -31,4 +31,22 @@ Result:
 [2012-09-30 15:53:44] [new Foo] Some log in constructor
 [2012-09-30 15:53:44] [Foo] Some log in Foo.bar()
 [2012-09-30 15:53:44] [Bar] Some log in Bar()
+```
+You can use other colors to distinguish logs in console.
+```js
+global.log = require('../lib/Log.js').log;
+
+log('normal (gray)');
+log.warn('yellow');
+log.warnB('yellow background');
+log.err('red');
+log.errB('red background');
+log.info('blue');
+log.infoB('blue background');
+log.ok('green');
+log.okB('green background');
+log.awa('magenta');
+log.awaB('magenta background');
+log.msg('cyan');
+log.msgB('cyan background');
 ```
