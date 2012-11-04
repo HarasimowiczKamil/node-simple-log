@@ -51,4 +51,4 @@ log.msg('cyan');
 log.msgB('cyan background');
 ```
 Result:
-![Log in other colors](./example.png)
+![Log in other colors](https://raw.github.com/HarasimowiczKamil/node-simple-log/master/example.png)
