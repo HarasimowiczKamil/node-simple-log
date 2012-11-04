@@ -50,3 +50,5 @@ log.awaB('magenta background');
 log.msg('cyan');
 log.msgB('cyan background');
 ```
+Result:
+![Log in other colors](./example.png)
