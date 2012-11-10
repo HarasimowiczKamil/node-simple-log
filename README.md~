@@ -30,7 +30,6 @@ obj.bar();
 
 Bar();
 ```
-
 Result:
 ```
 [2012-09-30 15:53:44] [-] Some log
@@ -38,7 +37,6 @@ Result:
 [2012-09-30 15:53:44] [Foo] Some log in Foo.bar()
 [2012-09-30 15:53:44] [Bar] Some log in Bar()
 ```
-
 You can use other colors to distinguish logs in console.
 ```js
 global.log = require('node-simple-log').log;

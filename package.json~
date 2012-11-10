@@ -5,7 +5,7 @@
     },
     "name": "node-simple-log",
     "description": "Overlay to the function console.log, other colors, added prefix with date and class name.",
-    "keywords": ["log", "color", "log with time", "colors log", "time log", "date log", "debug"],
+    "keywords": ["log", "color", "log with time", "colors log", "debug"],
     "version": "1.0.0",
     "engines": {
         "node": "*"
