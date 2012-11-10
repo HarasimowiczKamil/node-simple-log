@@ -3,9 +3,14 @@ nodejs-simple-log
 
 Overlay to the function console.log
 
+## Install ##
+```
+npm install node-simple-log
+```
+
 ## Example ##
 ```js
-global.log = require('../lib/Log.js').log;
+global.log = require('node-simple-log').log;
 
 log('Some', 'log');
 
@@ -34,7 +39,7 @@ Result:
 ```
 You can use other colors to distinguish logs in console.
 ```js
-global.log = require('../lib/Log.js').log;
+global.log = require('node-simple-log').log;
 
 log('normal (gray)');
 log.warn('yellow');
