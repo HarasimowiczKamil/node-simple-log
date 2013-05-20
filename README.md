@@ -131,4 +131,6 @@ Result:
 [2012-09-30 15:53:44] [Bar] Some log in Bar()
 ```
 
+See more in example directory
+
 ![Log in other colors](https://raw.github.com/HarasimowiczKamil/node-simple-log/master/example.png)
