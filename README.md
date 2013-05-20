@@ -77,7 +77,7 @@ simple.config('myLogArgColor', 'underline');
 simple.name('myLog').log('my custom log');
 ```
 
-### Standard log print: ###
+### Standard print methods: ###
 
 ```js
 var simple = require('node-simple-log');
@@ -90,7 +90,7 @@ simple.ok('my green log');
 simple.msg('my msg');
 ```
 
-You can add your log to global object:
+You can add your log type to global object:
 
 ```js
 var simple = require('node-simple-log');
