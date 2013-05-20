@@ -1,46 +1,54 @@
-global.log = require('../lib/Log.js').log;
+var simpleLog = require('../lib/simple-log.js');
+for (var fun in simpleLog) {
+    // it's only one method to replace global console object
+    console[fun] = simpleLog[fun];
+}
 
-log('Some', 'log');
+console.config('infoTemplate', '[{parent.method}] [{time}] : ');
+console.config('infoColor', 'light-magenta');
+
+console.log('Some', 'log');
 
 function Foo() {
-    log.warn('Some', 'log', 'in', 'constructor');
-    log.warnB('Bright', 'Some', 'log', 'in', 'constructor');
+    console.warn('Some', 'log', 'in', 'constructor');
 }
 Foo.prototype.bar = function() {
-    log.err('Some', 'log', 'in', 'Foo.bar()');
-    log.errB('Bright', 'Some', 'log', 'in', 'Foo.bar()');
+    console.error('Some', 'log', 'in', 'Foo.bar()');
+}
+
+Foo.prototype.far = function() {
+    console.info('Some', 'log', 'in', 'Foo.far()');
 }
 
 function Bar() {
-    log.ok('Some', 'log', 'in', 'Bar()');
-    log.okB('Bright', 'Some', 'log', 'in', 'Bar()');
+    console.ok('Some', 'log', 'in', 'Bar()');
 }
 
 var obj = new Foo();
 obj.bar();
+obj.far();
 
 Bar();
 
-log('Other:');
-log.awa('log.awa()');
-log.awaB('log.awaB()');
-log.info('log.info()');
-log.infoB('log.infoB()');
-log.msg('log.msg()');
-log.msgB('log.msgB()');
+console.log('Other:');
+console.info('log.info()');
+console.msg('log.msg()');
+
+console.name('msg').log('log.msg()');
+
+console.config('myLogTemplate', '{time} {ref-file-line} | {arguments}');
+console.config('myLogColor', 'light-red');
+console.config('myLogArgColor', 'underline');
+console.name('myLog').log('my custom log');
 
 // Result:
-// [2012-09-31 19:07:56] [-] Some log
-//  [2012-09-31 19:07:56] [new Foo] Some log in constructor
-//  [2012-09-31 19:07:56] [new Foo] Bright Some log in constructor
-//  [2012-09-31 19:07:56] [Foo] Some log in Foo.bar()
-//  [2012-09-31 19:07:56] [Foo] Bright Some log in Foo.bar()
-//  [2012-09-31 19:07:56] [Bar] Some log in Bar()
-//  [2012-09-31 19:07:56] [Bar] Bright Some log in Bar()
-// [2012-09-31 19:07:56] [-] Other:
-//  [2012-09-31 19:07:56] [-] log.awa()
-//  [2012-09-31 19:07:56] [-] log.awaB()
-//  [2012-09-31 19:07:56] [-] log.info()
-//  [2012-09-31 19:07:56] [-] log.infoB()
-//  [2012-09-31 19:07:56] [-] log.msg()
-//  [2012-09-31 19:07:56] [-] log.msgB()
+// [2013-04-20 11:01:33] [-]: Some log
+// [2013-04-20 11:01:33] [new Foo]: Some log in constructor
+// [2013-04-20 11:01:33] [/example.js]: Some log in Foo.bar()       
+// [Foo.far] [2013-04-20 11:01:33] : Some log in Foo.far()
+// [2013-04-20 11:01:33] [Bar]: Some log in Bar()
+// [2013-04-20 11:01:33] [-]: Other:
+// [-] [2013-04-20 11:01:33] : log.info()
+// [2013-04-20 11:01:33] [-]: log.msg()
+// [2013-04-20 11:01:33] [-]: log.msg()
+// 2013-04-20 11:01:33 {ref-file-line} | my custom log

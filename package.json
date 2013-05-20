@@ -6,7 +6,7 @@
     "name": "node-simple-log",
     "description": "Overlay to the function console.log, other colors, added prefix with date and class name.",
     "keywords": ["log", "color", "log with time", "colors log", "time log", "date log", "debug"],
-    "version": "1.0.0",
+    "version": "2.0.0",
     "engines": {
         "node": "*"
     },
@@ -14,5 +14,5 @@
         "type" : "git",
         "url" : "https://github.com/HarasimowiczKamil/node-simple-log"
     },
-    "main": "./index"
+    "main": "./lib/simple-log.js"
 }
