@@ -3,6 +3,8 @@ nodejs-simple-log
 
 Overlay to the function console.log
 
+[![NPM](https://nodei.co/npm/node-simple-log.png?downloads=true&stars=true)](https://nodei.co/npm/node-simple-log/)
+
 ## Install ##
 ```
 npm install node-simple-log
